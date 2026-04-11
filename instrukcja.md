@@ -60,3 +60,4 @@ docker-compose up
 - Nie publikuj portu backendu na zewnątrz.
 - Frontend jest serwowany przez Nginx i proxy do backendu przez `/api/`.
 - Obrazy taguj jako `v1` i `latest`.
+powershell -ExecutionPolicy Bypass -File start.ps1
