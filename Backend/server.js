@@ -38,13 +38,12 @@ app.delete('/items/:id', (req, res) => {
 app.get('/stats', (req, res) => {
   // Dodatkowe statystyki
   const count = items.length;
-  const instanceId = uuidv4();
   const manufacturers = [...new Set(items.map(i => i.manufacturer))];
   const categories = [...new Set(items.map(i => i.category))];
   const avgPrice = count > 0 ? (items.reduce((sum, i) => sum + parseFloat(i.price), 0) / count).toFixed(2) : 0;
   res.json({
     count,
-    instanceId,
+    instanceId: process.env.INSTANCE_ID || 'unknown',
     manufacturers,
     categories,
     avgPrice
